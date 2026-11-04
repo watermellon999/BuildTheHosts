@@ -3,9 +3,13 @@
 A GitHub Action that builds **ready-to-use hosts blocklists** for multiple profiles (desktop, mobile, …) and publishes them to a rolling `latest` release — no servers, no daemons, no telemetry.
 
 In plain terms: 
+
     👉 you describe *what* to block in a few plain text files,
+
     👉 GitHub rebuilds the lists on a schedule,
+
     👉 you download the finished `*-hosts.blocked` file and drop it into `/etc/hosts`.
+
 
 You stay in control of **what gets blocked and what doesn't**.
 
@@ -168,7 +172,7 @@ Keep `/etc/hosts.bak` around. You will want it the first time a list is more agg
 
 ## Running it yourself (optional)
 
-> **Running it locally? You probably want the other repo**
+> ### Running it locally? You probably want the other repo
 >
 > This repository is the **CI-first** version. It is designed to be
 > forked, scheduled, and downloaded from — not run on your own machine.
