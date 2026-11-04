@@ -1,0 +1,33 @@
+# Reddit
+reddit.com
+www.reddit.com
+api.reddit.com
+new.reddit.com
+old.reddit.com
+i.redd.it
+s.redd.it
+v.redd.it
+preview.redd.it
+external-preview.redd.it
+styles.redditmedia.com
+www.redditstatic.com
+reddit-uploaded-media.s3-accelerate.amazonaws.com
+thumbs.redditmedia.com
+
+# WhatsApp
+whatsapp.net
+g.whatsapp.net
+cdn.whatsapp.net
+static.whatsapp.net
+web.whatsapp.com
+www.whatsapp.com
+faq.whatsapp.com	
+media-mxp1-1.cdn.whatsapp.net	
+mmx-ds.cdn.whatsapp.net	
+scontent.whatsapp.net	
+
+# GitHub
+github.com
+github.io
+www.github.com
+www.github.io
