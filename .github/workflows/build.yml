@@ -1,0 +1,72 @@
+name: build-hosts
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "profiles/**"
+      - "build.sh"
+      - ".github/workflows/build.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      profiles: ${{ steps.list.outputs.profiles }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: list
+        run: |
+          set -euo pipefail
+          profiles=$(find profiles -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort | jq -R . | jq -sc .)
+          echo "profiles=$profiles" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: discover
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: ${{ fromJson(needs.discover.outputs.profiles) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build ${{ matrix.profile }}
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          ./build.sh "profiles/${{ matrix.profile }}" "out/${{ matrix.profile }}-hosts.blocked"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.profile }}-hosts.blocked
+          path: out/${{ matrix.profile }}-hosts.blocked
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: List assets
+        run: ls -la dist
+
+      - name: Publish rolling release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest blocklists
+          make_latest: true
+          files: dist/*-hosts.blocked
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
