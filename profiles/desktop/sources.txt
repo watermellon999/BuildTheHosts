@@ -1,6 +1,6 @@
 https://big.oisd.nl/
 # https://nsfw.oisd.nl/
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultimate.txt
+https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.plus.txt
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
 https://blocklistproject.github.io/Lists/malware.txt
 https://blocklistproject.github.io/Lists/phishing.txt
