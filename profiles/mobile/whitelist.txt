@@ -27,19 +27,12 @@ mmx-ds.cdn.whatsapp.net
 scontent.whatsapp.net	
 
 # TikTok
-api16.tiktokv.com
-api16-normal-c-alisg.tiktokv.com
-api16-core-c-alisg.tiktokv.com
-api19-core-c-alisg.tiktokv.com
-api19-normal-c-alisg.tiktokv.com
-api-boot.tiktokv.com
-api-core-boot.tiktokv.com
 v.tiktok.com
 www.tiktok.com
 regex:^p[^.]*-sign\.tiktokcdn\.com$
 regex:^p[^.]*-sign-sg\.tiktokcdn\.com$
 regex:^p[^.]*-sign-sg\.ibyteimg\.com$
-regex:^search[^.]*-alisg\.tiktokv\.com$
+regex:^search[^.]*\.tiktokv\.com$
 regex:^v[A-Za-z0-9]*\.tiktokcdn\.com$
 
 # GitHub
